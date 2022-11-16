@@ -1,0 +1,15 @@
+{
+    "device_ip_home": "http://192.168.2.101",
+    "device_ip_lh": "http://localhost",
+    "device_ip_iphone": "http://172.20.10.2",
+    "device_ip": "http://localhost",
+
+    "fusionauth_port": 9011,
+
+    "handyticket_port": 2000,
+    "handyticket_port_react": 2100,
+
+    "konrad_port": 3000,
+    "konrad_port_react": 3100
+    
+}
