@@ -6,10 +6,19 @@
 
     "fusionauth_port": 9011,
 
-    "handyticket_port": 2000,
-    "handyticket_port_react": 2100,
+    "login":{
+        "port": 2000,
+        "port_react": 2100
+    },
+    
+    "handyticket":{
+        "port": 4000,
+        "port_react": 4100
+    },
 
-    "konrad_port": 3000,
-    "konrad_port_react": 3100
+    "konrad":{
+        "port": 3000,
+        "port_react": 3100
+    }
     
 }

@@ -126,12 +126,11 @@ const serviceData = {
   Konrad: {
     name: "Konrad",
     icon: require('./ServiceWidgets/Icons/Bicycle.png'),
-    link: `${config.device_ip}:${config.konrad_port_react}`
+    link: `${config.device_ip}:${config.konrad.port_react}`
   },
   KonstanzLogin: {
     name: "KN-Login",
     icon: require('./ServiceWidgets/Icons/KonstanzLoginLogo.jpeg'),
-    link: `${config.device_ip}:${config.konrad_port}`,
-    link1: "`${config.device_ip}:${config.konrad_port}`"
+    link: `${config.device_ip}:${config.login.port_react}`,
   }
 }
