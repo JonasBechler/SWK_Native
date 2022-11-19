@@ -10,15 +10,15 @@
         "port": 2000,
         "port_react": 2100
     },
-    
-    "handyticket":{
-        "port": 4000,
-        "port_react": 4100
-    },
 
     "konrad":{
         "port": 3000,
         "port_react": 3100
+    },
+    
+    "handyticket":{
+        "port": 4000,
+        "port_react": 4100
     }
     
 }

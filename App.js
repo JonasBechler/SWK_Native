@@ -12,9 +12,9 @@ import config from './config.json';
 
 export default function App() {
 	const [showService, setShowService] = useState(false);
-	const [showKnLogin, setShowKnLogin] = useState(true);
+	const [showKnLogin, setShowKnLogin] = useState(false);
 
-	const [webviewerUrl, setWebviewerUrl] = useState("");
+	const [webviewerUrl, setWebviewerUrl] = useState(serviceData.KonstanzLogin.link);
 
 
 	const openLinkService = (link) => {
@@ -150,6 +150,6 @@ const serviceData = {
 	KonstanzLogin: {
 		name: "KN-Login",
 		icon: require('./ServiceWidgets/Icons/KonstanzLoginLogo.jpeg'),
-		link: `${config.device_ip}:${config.login.port_react}`,
+		link: `${config.device_ip}:${config.login.port_react}/login`,
 	}
 }
