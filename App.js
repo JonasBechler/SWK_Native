@@ -140,16 +140,16 @@ const serviceData = {
 	Handyticket: {
 		name: "Handyticket",
 		icon: require('./ServiceWidgets/Icons/Handyticket.png'),
-		link: `${config.device_ip}:${config.handyticket.port_react}`,
+		link: `${config.device_ip}:${config.handyticket.port}`,
 	},
 	Konrad: {
 		name: "Konrad",
 		icon: require('./ServiceWidgets/Icons/Bicycle.png'),
-		link: `${config.device_ip}:${config.konrad.port_react}`
+		link: `${config.device_ip}:${config.konrad.port}`
 	},
 	KonstanzLogin: {
 		name: "KN-Login",
 		icon: require('./ServiceWidgets/Icons/KonstanzLoginLogo.jpeg'),
-		link: `${config.device_ip}:${config.login.port_react}/login`,
+		link: `${config.device_ip}:${config.login.port}/login`,
 	}
 }
