@@ -2,23 +2,26 @@
     "device_ip_home": "http://192.168.2.101",
     "device_ip_lh": "http://localhost",
     "device_ip_iphone": "http://172.20.10.2",
-    "device_ip": "http://192.168.2.101",
+    "device_ip": "http://192.168.2.94",
 
     "fusionauth_port": 9011,
 
     "login":{
         "port": 2000,
-        "port_react": 2100
+        "port_react": 2100,
+        "session_secret": "njkdfnvkjfndksnvls"
     },
 
     "konrad":{
         "port": 3000,
-        "port_react": 3100
+        "port_react": 3100,
+        "session_secret": "gviehinmxhsöodjcshi"
     },
     
     "handyticket":{
         "port": 4000,
-        "port_react": 4100
+        "port_react": 4100,
+        "session_secret": "jcshgfmshfgmclsfh,cgls"
     }
     
 }
