@@ -2,26 +2,38 @@
     "device_ip_home": "http://192.168.2.101",
     "device_ip_lh": "http://localhost",
     "device_ip_iphone": "http://172.20.10.2",
-    "device_ip": "http://192.168.2.94",
+    "device_ip": "http://localhost",
 
     "fusionauth_port": 9011,
 
     "login":{
-        "port": 2000,
-        "port_react": 2100,
-        "session_secret": "njkdfnvkjfndksnvls"
+        "port": 50010,
+        "port_react": 50011,
+        "session_secret": "njkdfnvkjfndksnvls",
+        "fusionauth":{
+            "client_id": "c4f0cc44-d3cc-4b76-a68f-91e2df829cd9",
+            "client_secret": "UrX0bTh75KeT0f7KhaUeuJiNwfo2kowtV7k3wqFjxBE"
+        }
     },
 
     "konrad":{
-        "port": 3000,
-        "port_react": 3100,
-        "session_secret": "gviehinmxhsöodjcshi"
+        "port": 50020,
+        "port_react": 50021,
+        "session_secret": "gviehinmxhsöodjcshi",
+        "fusionauth":{
+            "client_id": "aeddeb0d-41ce-484d-b8b3-f250b65a4ce6",
+            "client_secret": "SKX96KaMMcsAd0dV_hSMUSQlZmOmP7uBzBMQu3qTP1A"
+        }
     },
     
     "handyticket":{
-        "port": 4000,
-        "port_react": 4100,
-        "session_secret": "jcshgfmshfgmclsfh,cgls"
+        "port": 50030,
+        "port_react": 50031,
+        "session_secret": "jcshgfmshfgmclsfh,cgls",
+        "fusionauth":{
+            "client_id": "a7e50e16-6d0e-43ee-a87e-bcfb870129c2",
+            "client_secret": "FOp4-5ZusvxOORJLnsznJoc8lUC0EY8YyP3RzqC-MtM"
+        }
     }
     
 }
