@@ -7,8 +7,12 @@ import KonstanzLogin from './ServiceWidgets/KonstanzLogin';
 import WebViewer from './WebViewer/WebViewer';
 import WebViewerKnLogin from './WebViewer/WebViewerKnLogin';
 
-import config from './config.json';
-
+let config = null;
+try{
+    config = require( "./config.json");
+}catch(error){
+    console.log(error);
+}
 
 export default function App() {
 	const [showService, setShowService] = useState(false);
