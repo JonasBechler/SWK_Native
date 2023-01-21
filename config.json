@@ -1,4 +1,6 @@
 {
+    "debug": true,
+
     "device_ip_home": "http://192.168.2.101",
     "device_ip_lh": "http://localhost",
     "device_ip_iphone": "http://172.20.10.2",
