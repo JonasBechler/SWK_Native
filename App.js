@@ -154,6 +154,6 @@ const serviceData = {
 	KonstanzLogin: {
 		name: "KN-Login",
 		icon: require('./ServiceWidgets/Icons/KonstanzLoginLogo.jpeg'),
-		link: `${config.device_ip}:${config.login.port}/login`,
+		link: `${config.device_ip}:${config.login.port}/kn/login`,
 	}
 }
