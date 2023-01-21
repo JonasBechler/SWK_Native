@@ -1,5 +1,5 @@
 {
-    "debug": true,
+    "debug": false,
 
     "device_ip_home": "http://192.168.2.101",
     "device_ip_lh": "http://localhost",
