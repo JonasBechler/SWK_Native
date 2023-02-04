@@ -11,14 +11,14 @@ export default function WebViewer( {webviewerUrl, closeLink} ) {
     return (
         <>
             
-            <WebView 
+            <WebView style={{position: "absolute", top: 0, left: 0, bottom: 0, right: 0,}}
             originWhitelist={['*']} 
             source={{url: webviewerUrl}}
             ></WebView>
+            
 
             <TouchableOpacity style={{position: 'absolute', left:5, top:25}} onPress={() => closeWebviewerHandler()}>
                 <Image style={styles.Image} source={require('./Icons/Back.png')}/>
-
             </TouchableOpacity>
         </>
     )

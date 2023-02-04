@@ -1,159 +1,80 @@
-import { StyleSheet, View, ImageBackground } from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+import {
+  Button,
+  Platform,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  ImageBackground,
+  Text,
+  View,
+} from 'react-native';
 
-import ServiceWidget from './ServiceWidgets/ServiceWidget';
-import KonstanzLogin from './ServiceWidgets/KonstanzLogin';
+import ServicWidgets from './ServiceWidgets/ServiceWidgets';
+import State_Controll from './ServiceWidgets/State_Controll';
 
-import WebViewer from './WebViewer/WebViewer';
-import WebViewerKnLogin from './WebViewer/WebViewerKnLogin';
 
-let config = null;
-try{
-    config = require( "./config.json");
-}catch(error){
-    console.log(error);
+
+
+export default function App (){
+  const [openingMethod, setOpeningMethod] = useState(0);
+
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={false}
+        backgroundColor='#CD2C29'
+        barStyle='dark-content'
+        showHideTransition='none'
+        hidden='Visible'
+      />
+      <ImageBackground source={require('./BackgroundMeinKonstanz.png')} resizeMode='center' style={styles.container}>
+        <ServicWidgets
+          method={controllData.OpeningMethod.definitions[openingMethod]}>
+
+        </ServicWidgets>
+        <State_Controll 
+        name={controllData.OpeningMethod.name} 
+        state={openingMethod}  
+        setState={setOpeningMethod} 
+        definitions={controllData.OpeningMethod.definitions} 
+        descriptions={controllData.OpeningMethod.descriptions}
+        style={controllView}>
+
+        </State_Controll>
+      </ImageBackground>
+    </SafeAreaView>
+  );
 }
 
-export default function App() {
-	const [showService, setShowService] = useState(false);
-	const [showKnLogin, setShowKnLogin] = useState(false);
+const controllView = StyleSheet.create({ 
+  top: 480,
+  left: 252,
+  width: 106,
+  height: 106
+})
 
-	const [webviewerUrl, setWebviewerUrl] = useState(serviceData.KonstanzLogin.link);
-
-
-	const openLinkService = (link) => {
-		setShowService(true);
-		setWebviewerUrl(link);
+const controllData = {
+  OpeningMethod: {
+		name: "Öffnungsmethode",
+    definitions: ["Linking", "Webviewer", "Mixed"],
+    descriptions: [
+      "Hierbei handelt es sich um Aufrufe im Webbrowser, so können auch Apps im geöffnent werden, sofern sie im Appstore verfügbar sind",
+      "Das Modul react-native-webview wird verwendet",
+      "Hier ist Konrad und KN-Login als Webview und das Handyticket als Linking (Deep Link) eingebaut."],
+      
 	}
-
-	const openLinkKonstanz = (link) => {
-		setShowKnLogin(true);
-		setWebviewerUrl(link);
-	}
-
-	const closeLink = () => {
-		setShowService(false);
-		setShowKnLogin(false);
-		//setWebviewerUrl("");
-	}
-
-	const get_content = () => {
-		if (showService){
-			return <WebViewer webviewerUrl={webviewerUrl} closeLink={closeLink}></WebViewer>
-		}
-
-		else return <>
-			{/* Show MeinKonstanz screenshot */}
-			<ImageBackground source={require('./BackgroundMeinKonstanz.png')} resizeMode='center' style={styles.BackgroundImage}>
-
-				{/* Repaint top pixels */}
-				<View style={styles.Top}></View>
-
-				{/* Adding Services */}
-				<ServiceWidget
-					name={serviceData.Handyticket.name}
-					icon={serviceData.Handyticket.icon}
-					link={serviceData.Handyticket.link}
-					style={styles.Handyticket}
-					openLink={openLinkService}>
-				</ServiceWidget>
-
-				<ServiceWidget
-					name={serviceData.Konrad.name}
-					icon={serviceData.Konrad.icon}
-					link={serviceData.Konrad.link}
-					style={styles.Konrad}
-					openLink={openLinkService}>
-				</ServiceWidget>
-
-				{/* Adding Konstanz Login */}
-				<KonstanzLogin
-					name={serviceData.KonstanzLogin.name}
-					icon={serviceData.KonstanzLogin.icon}
-					link={serviceData.KonstanzLogin.link}
-					style={styles.KonstanzLogin}
-					openLink={openLinkKonstanz}>
-				</KonstanzLogin>
-
-			</ImageBackground>
-			{(showKnLogin)?(
-				<>
-					<WebViewerKnLogin webviewerUrl={webviewerUrl} closeLink={closeLink}></WebViewerKnLogin>
-				</>
-			) : (
-				<>
-				</>
-			)}
-		</>
-	}
-
-	return (
-		<>
-
-			{
-				get_content()
-			}
-		</>
-	);
 }
+
+
 
 const styles = StyleSheet.create({
-
-	BackgroundImage: {
-
-		flex: 1,
-
-	},
-
-	Top: {
-
-		height: 20,
-		backgroundColor: '#CD2C29'
-
-	},
-
-	Handyticket: {
-
-		top: 33,
-		left: 252,
-		width: 106,
-		height: 222,
-
-	},
-
-	Konrad: {
-
-		top: 500,
-		left: 17,
-		width: 106,
-		height: 106,
-
-	},
-
-	KonstanzLogin: {
-
-		bottom: 0,
-		alignSelf: 'center',
-		width: 80,
-		height: 55,
-
-	}
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#CD2C29',
+  }
+  
 });
 
-const serviceData = {
-	Handyticket: {
-		name: "Handyticket",
-		icon: require('./ServiceWidgets/Icons/Handyticket.png'),
-		link: `${config.device_ip}:${config.handyticket.port}`,
-	},
-	Konrad: {
-		name: "Konrad",
-		icon: require('./ServiceWidgets/Icons/Bicycle.png'),
-		link: `${config.device_ip}:${config.konrad.port}`
-	},
-	KonstanzLogin: {
-		name: "KN-Login",
-		icon: require('./ServiceWidgets/Icons/KonstanzLoginLogo.jpeg'),
-		link: `${config.device_ip}:${config.login.port}/kn/login`,
-	}
-}

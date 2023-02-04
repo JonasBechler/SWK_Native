@@ -1,10 +1,21 @@
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, {useCallback, useState} from 'react'
+import { View, StyleSheet, Linking, Text, Image, TouchableOpacity } from 'react-native'
 
 export default function KonstanzLogin({name, icon, link, style, openLink}) {
-  function ClickHandler () {
-    openLink(link)
-  }
+  const ClickHandler = useCallback(async () => {
+    // Checking if the link is supported for links with custom URL scheme.
+    const supported = await Linking.canOpenURL(link);
+
+    if (supported) {
+      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+      // by some browser in the mobile
+      await Linking.openURL(link);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${link}`);
+    }
+  }, [link]);
+
+
   return (
     <TouchableOpacity style={[styles.KonstanzLogin, style]} onPress={() => ClickHandler()}>
 
