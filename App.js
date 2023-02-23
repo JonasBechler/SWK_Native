@@ -10,9 +10,9 @@ import {
   View,
 } from 'react-native';
 
+import PixelRatio from './ServiceWidgets/PixelRatio';
 import ServicWidgets from './ServiceWidgets/ServiceWidgets';
 import State_Controll from './ServiceWidgets/State_Controll';
-
 
 
 
@@ -22,31 +22,36 @@ export default function App (){
 
   return (
     <SafeAreaView style={styles.container}>
-      
+      <View style={styles.myDimenstion}>
+        
       <ImageBackground source={require('./BackgroundMeinKonstanz.png')} resizeMode='stretch' style={styles.container}>
         <ServicWidgets
-          method={controllData.OpeningMethod.definitions[openingMethod]}>
-
+          method={controllData.OpeningMethod.definitions[openingMethod]}
+        >
         </ServicWidgets>
-        <State_Controll 
-        name={controllData.OpeningMethod.name} 
-        state={openingMethod}  
-        setState={setOpeningMethod} 
-        definitions={controllData.OpeningMethod.definitions} 
-        descriptions={controllData.OpeningMethod.descriptions}
-        style={controllView}>
 
+        <State_Controll 
+          state={openingMethod}  
+          setState={setOpeningMethod} 
+          controllData={controllData.OpeningMethod}
+          style={controllView}>
         </State_Controll>
       </ImageBackground>
+
+      </View>
+      
+      
     </SafeAreaView>
   );
 }
 
+
+
 const controllView = StyleSheet.create({ 
-  top: 480,
-  left: 252,
-  width: 106,
-  height: 106
+  top: 960/PixelRatio(),
+  left: 502/PixelRatio(),
+  width: 212/PixelRatio(),
+  height: 212/PixelRatio(),
 })
 
 const controllData = {
@@ -62,13 +67,22 @@ const controllData = {
 }
 
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#CD2C29',
+  },
+
+  myDimenstion: {
+    width: 748/PixelRatio(),
+    height: 1294/PixelRatio(),
+    backgroundColor: '#00F0F0',
+
   }
-  
+
 });
+
+
 

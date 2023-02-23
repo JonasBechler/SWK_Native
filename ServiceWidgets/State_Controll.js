@@ -1,14 +1,18 @@
-import React, {useCallback, useState} from 'react'
-import { View, StyleSheet, Linking, Text, Image, TouchableOpacity } from 'react-native'
-import WebViewer from '../WebViewer/WebViewer';
+import React from 'react'
+import { 
+  View, 
+  StyleSheet, 
+  Text, 
+  TouchableOpacity 
+} from 'react-native'
+
+import PixelRatio from './PixelRatio';
 
 
-export default function State_Controll({name, state, setState, definitions, descriptions, style}) {
 
-
-
+export default function State_Controll({state, setState, controllData, style}) {
   const ClickHandler = () => {
-    if (state < definitions.length - 1){
+    if (state < controllData.definitions.length - 1){
       setState(state+1);
     }
     else{
@@ -25,10 +29,10 @@ export default function State_Controll({name, state, setState, definitions, desc
     <View style={[styles.serviceWidget, style]}></View>
     <TouchableOpacity style={[styles.serviceWidget, style]} onPress={() => ClickHandler()}>
       <View style={{margin:5}}>
-        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.text}>{controllData.name}</Text>
         <View style={{flex:0.2}}></View>
-        <Text style={styles.text}>{definitions[state]}</Text>
-        <Text style={styles.text_small}>{descriptions[state]}</Text>
+        <Text style={styles.text}>{controllData.definitions[state]}</Text>
+        <Text style={styles.text_small}>{controllData.descriptions[state]}</Text>
 
 
         <View style={{flex:0.2}}></View>
@@ -45,20 +49,20 @@ const styles = StyleSheet.create({
     position:'absolute',
     alignItems:'center',
     backgroundColor: '#CD2C29',
-    borderRadius:8,
-    borderWidth:1,
+    borderRadius:16/PixelRatio(),
+    borderWidth:2/PixelRatio(),
     borderColor:'white',
 
   },
 
   text: {
     color:'white',
-    fontSize:10,
+    fontSize:20/PixelRatio(),
     alignSelf:'center',
   },
   text_small:{
     color:'white',
-    fontSize:8,
+    fontSize:16/PixelRatio(),
     alignSelf:'center',
   }
 });

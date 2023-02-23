@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
-  Button,
-  Platform,
-  SafeAreaView,
-  StatusBar,
   StyleSheet,
-  ImageBackground,
   Text,
   View,
 } from 'react-native';
+
+import PixelRatio from './PixelRatio';
+
 
 import ServiceWidget_Linking from './ServiceWidget_Linking';
 import KonstanzLogin_Linking from './KonstanzLogin_Linking';
@@ -16,42 +14,44 @@ import KonstanzLogin_Linking from './KonstanzLogin_Linking';
 import ServiceWidget_Webviewer from './ServiceWidget_Webviewer';
 import KonstanzLogin_Webviewer from './KonstanzLogin_Webviewer';
 
+
+
 config = require( "../config.json");
 const serviceData = {
-	Handyticket: {
-		name: "Handyticket",
-		icon: require('./Icons/Handyticket.png'),
-		link: `${config.device_ip}:${config.handyticket.port}`,
-	},
-	Konrad: {
-		name: "Konrad",
-		icon: require('./Icons/Bicycle.png'),
-		link: `${config.device_ip}:${config.konrad.port}`
-	},
-	KonstanzLogin: {
-		name: "KN-Login",
-		icon: require('./Icons/KonstanzLoginLogo.jpeg'),
-		link: `${config.device_ip}:${config.login.port}/kn/login`,
-	}
+    Handyticket: {
+        name: "Handyticket",
+        icon: require('./Icons/Handyticket.png'),
+        link: `${config.device_ip}:${config.handyticket.port}`,
+    },
+    Konrad: {
+        name: "Konrad",
+        icon: require('./Icons/Bicycle.png'),
+        link: `${config.device_ip}:${config.konrad.port}`
+    },
+    KonstanzLogin: {
+        name: "KN-Login",
+        icon: require('./Icons/KonstanzLoginLogo.jpeg'),
+        link: `${config.device_ip}:${config.login.port}/kn/login`,
+    }
 }
 
 const serviceView = StyleSheet.create({
     
     Handyticket: {
     
-        top: 13,
-        left: 252,
-        width: 106,
-        height: 222,
+        top: 26/PixelRatio(),
+        left: 502/PixelRatio(),
+        width: 212/PixelRatio(),
+        height: 444/PixelRatio()
     
     },
     
     Konrad: {
     
-        top: 480,
-        left: 17,
-        width: 106,
-        height: 106,
+        top: 960/PixelRatio(),
+        left: 34/PixelRatio(),
+        width: 212/PixelRatio(),
+        height: 212/PixelRatio()
     
     },
     
@@ -59,12 +59,11 @@ const serviceView = StyleSheet.create({
     
         bottom: 0,
         alignSelf: 'center',
-        width: 80,
-        height: 55,
+        width: 160/PixelRatio(),
+        height: 110/PixelRatio()
     
     }
-    }
-);
+});
 
 function Linking(){
     return (
@@ -153,8 +152,8 @@ function Mixed(){
     );
 }
     
+export default function ServicWidgets({method}) {
 
-function ServicWidgets({method}) {
     if (method == "Linking"){
         return Linking();
     }
@@ -177,4 +176,4 @@ function ServicWidgets({method}) {
     }
 }
 
-export default ServicWidgets
+
