@@ -54,8 +54,8 @@ const controllData = {
 		name: "Öffnungsmethode",
     definitions: ["Linking", "Webviewer", "Mixed"],
     descriptions: [
-      "Hierbei handelt es sich um Aufrufe im Webbrowser, so können auch Apps im geöffnent werden, sofern sie im Appstore verfügbar sind",
-      "Das Modul react-native-webview wird verwendet",
+      "Hierbei handelt es sich um Aufrufe im Webbrowser, so können auch Apps geöffnent werden, sofern sie im App-Store verfügbar sind.",
+      "Das Modul react-native-webview wird verwendet.",
       "Hier ist Konrad und KN-Login als Webview und das Handyticket als Linking (Deep Link) eingebaut."],
       
 	}
