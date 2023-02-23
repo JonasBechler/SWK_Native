@@ -1,6 +1,5 @@
 import React, {useCallback, useState} from 'react'
 import { View, StyleSheet, Linking, Text, Image, TouchableOpacity } from 'react-native'
-import WebViewer from '../WebViewer/WebViewer';
 
 
 export default function ServicWidget({name, icon, link, style}) {

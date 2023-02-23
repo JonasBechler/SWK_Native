@@ -22,14 +22,8 @@ export default function App (){
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar
-        animated={false}
-        backgroundColor='#CD2C29'
-        barStyle='dark-content'
-        showHideTransition='none'
-        hidden='Visible'
-      />
-      <ImageBackground source={require('./BackgroundMeinKonstanz.png')} resizeMode='center' style={styles.container}>
+      
+      <ImageBackground source={require('./BackgroundMeinKonstanz.png')} resizeMode='stretch' style={styles.container}>
         <ServicWidgets
           method={controllData.OpeningMethod.definitions[openingMethod]}>
 
