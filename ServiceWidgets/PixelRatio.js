@@ -6,11 +6,8 @@ export default function MyPixelRatio (){
     const height = 1294;
     const windowHeight = Dimensions.get('window').height;
 
-    let pr = PixelRatio.get()
-    while (windowWidth > width/pr || windowHeight > height/pr){
-        pr=pr-0.1;
-    }
-    pr=pr+0.1;
-    
+    const pr_width = width / windowWidth
+    const pr_height = height / windowHeight
+    const pr = Math.max(pr_width, pr_height) 
     return pr
 }
