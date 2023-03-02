@@ -1,4 +1,4 @@
-import { PixelRatio, Dimensions } from 'react-native';
+import {Dimensions } from 'react-native';
 
 export default function MyPixelRatio (){
     const width = 748;

@@ -17,9 +17,13 @@ export default function Button({name, icon, style, onPress}) {
     <View style={[styles.serviceWidget, style]}></View>
     <TouchableOpacity style={[styles.serviceWidget, style]} onPress={() => onPress()}>
 
-      <Image style={styles.icon} source={icon}/>
+      <View style={{flex:0.5}}></View>
+      <View style={styles.icon_div}>
+        <Image style={styles.icon} source={icon}/>
+      </View>
+      
       <Text style={styles.text}>{name}</Text>
-      <View style={{flex:0.2}}></View>
+      <View style={{flex:0.5}}></View>
       
     </TouchableOpacity>
     </>
@@ -37,9 +41,15 @@ const styles = StyleSheet.create({
     borderWidth:2/PixelRatio(),
   },
 
+  icon_div:{
+    width: 150/PixelRatio(),
+    height: 150/PixelRatio(),
+  },
+
   icon:{
     flex:1,
-    resizeMode:"center",
+    alignSelf: "center",
+    resizeMode:"contain",
   },
   
   text: {
